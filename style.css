@@ -1,0 +1,407 @@
+html {
+  height: 100%;
+}
+
+:root{
+    --firstBg: #DA22FF;
+    --secondBg : #9733EE;
+    --backgroundBg: #343334;
+}
+body {
+  background: var(--backgroundBg);
+  font-family: "Anton", sans-serif;
+  height: 100%;
+}
+
+.container {
+  height: 200px;
+  position: relative;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nums {
+  box-shadow: 0 3px 10px #111;
+  border-top: 1px solid #393939;
+  display: inline-block;
+  height: 200px;
+  margin: 0 20px;
+  perspective: 1000px;
+  position: relative;
+  width: 140px;
+}
+
+.nums:before {
+  border-bottom: 2px solid black;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform: translate3d(0, -1px, 0);
+  top: 50%;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nums:after {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background: var(--secondBg);
+  border-bottom: 1px solid #444444;
+  border-top: 1px solid black;
+  border-radius: 0 0 5px 5px;
+  bottom: 0;
+  box-shadow: inset 0 15px 50px #202020;
+  color: #eeeeee;
+  content: "0";
+  display: block;
+  font-size: 145px;
+  height: calc(50% - 1px);
+  left: 0;
+  line-height: 0;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  text-shadow: 0 1px 2px #333;
+  width: 100%;
+  z-index: 0;
+}
+
+.num {
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  border-radius: 5px;
+  font-size: 145px;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  transform: rotateX(0);
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  top: 0;
+  width: 100%;
+}
+
+.num:before,
+.num:after {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  color: #eeeeee;
+  display: block;
+  height: 50%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  text-shadow: 0 1px 2px #333;
+  width: 100%;
+}
+
+.num:before {
+  background: var(--firstBg);
+  border-radius: 5px 5px 0 0;
+  box-shadow: inset 0 15px 50px #111111;
+  content: attr(data-num);
+  line-height: 1.38;
+  top: 0;
+  z-index: 1;
+}
+
+.num:after {
+  background: var(--secondBg);
+  border-bottom: 1px solid #444444;
+  border-radius: 0 0 5px 5px;
+  box-shadow: inset 0 15px 50px #202020;
+  content: attr(data-num-next);
+  height: calc(50% - 1px);
+  line-height: 0;
+  top: 0;
+  transform: rotateX(180deg);
+}
+
+.nums-one .num:nth-of-type(1) {
+  -webkit-animation-name: num-one;
+          animation-name: num-one;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  z-index: 10;
+}
+
+.nums-ten .num:nth-of-type(1) {
+  -webkit-animation-name: num-ten;
+          animation-name: num-ten;
+  -webkit-animation-delay: 9s;
+          animation-delay: 9s;
+  -webkit-animation-duration: 100s;
+          animation-duration: 100s;
+  z-index: 10;
+}
+
+.nums-one .num:nth-of-type(2) {
+  -webkit-animation-name: num-one;
+          animation-name: num-one;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  z-index: 9;
+}
+
+.nums-ten .num:nth-of-type(2) {
+  -webkit-animation-name: num-ten;
+          animation-name: num-ten;
+  -webkit-animation-delay: 19s;
+          animation-delay: 19s;
+  -webkit-animation-duration: 100s;
+          animation-duration: 100s;
+  z-index: 9;
+}
+
+.nums-one .num:nth-of-type(3) {
+  -webkit-animation-name: num-one;
+          animation-name: num-one;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  z-index: 8;
+}
+
+.nums-ten .num:nth-of-type(3) {
+  -webkit-animation-name: num-ten;
+          animation-name: num-ten;
+  -webkit-animation-delay: 29s;
+          animation-delay: 29s;
+  -webkit-animation-duration: 100s;
+          animation-duration: 100s;
+  z-index: 8;
+}
+
+.nums-one .num:nth-of-type(4) {
+  -webkit-animation-name: num-one;
+          animation-name: num-one;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  z-index: 7;
+}
+
+.nums-ten .num:nth-of-type(4) {
+  -webkit-animation-name: num-ten;
+          animation-name: num-ten;
+  -webkit-animation-delay: 39s;
+          animation-delay: 39s;
+  -webkit-animation-duration: 100s;
+          animation-duration: 100s;
+  z-index: 7;
+}
+
+.nums-one .num:nth-of-type(5) {
+  -webkit-animation-name: num-one;
+          animation-name: num-one;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  z-index: 6;
+}
+
+.nums-ten .num:nth-of-type(5) {
+  -webkit-animation-name: num-ten;
+          animation-name: num-ten;
+  -webkit-animation-delay: 49s;
+          animation-delay: 49s;
+  -webkit-animation-duration: 100s;
+          animation-duration: 100s;
+  z-index: 6;
+}
+
+.nums-one .num:nth-of-type(6) {
+  -webkit-animation-name: num-one;
+          animation-name: num-one;
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  z-index: 5;
+}
+
+.nums-ten .num:nth-of-type(6) {
+  -webkit-animation-name: num-ten;
+          animation-name: num-ten;
+  -webkit-animation-delay: 59s;
+          animation-delay: 59s;
+  -webkit-animation-duration: 100s;
+          animation-duration: 100s;
+  z-index: 5;
+}
+
+.nums-one .num:nth-of-type(7) {
+  -webkit-animation-name: num-one;
+          animation-name: num-one;
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  z-index: 4;
+}
+
+.nums-ten .num:nth-of-type(7) {
+  -webkit-animation-name: num-ten;
+          animation-name: num-ten;
+  -webkit-animation-delay: 69s;
+          animation-delay: 69s;
+  -webkit-animation-duration: 100s;
+          animation-duration: 100s;
+  z-index: 4;
+}
+
+.nums-one .num:nth-of-type(8) {
+  -webkit-animation-name: num-one;
+          animation-name: num-one;
+  -webkit-animation-delay: 7s;
+          animation-delay: 7s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  z-index: 3;
+}
+
+.nums-ten .num:nth-of-type(8) {
+  -webkit-animation-name: num-ten;
+          animation-name: num-ten;
+  -webkit-animation-delay: 79s;
+          animation-delay: 79s;
+  -webkit-animation-duration: 100s;
+          animation-duration: 100s;
+  z-index: 3;
+}
+
+.nums-one .num:nth-of-type(9) {
+  -webkit-animation-name: num-one;
+          animation-name: num-one;
+  -webkit-animation-delay: 8s;
+          animation-delay: 8s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  z-index: 2;
+}
+
+.nums-ten .num:nth-of-type(9) {
+  -webkit-animation-name: num-ten;
+          animation-name: num-ten;
+  -webkit-animation-delay: 89s;
+          animation-delay: 89s;
+  -webkit-animation-duration: 100s;
+          animation-duration: 100s;
+  z-index: 2;
+}
+
+.nums-one .num:nth-of-type(10) {
+  -webkit-animation-name: num-one;
+          animation-name: num-one;
+  -webkit-animation-delay: 9s;
+          animation-delay: 9s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  z-index: 1;
+}
+
+.nums-ten .num:nth-of-type(10) {
+  -webkit-animation-name: num-ten;
+          animation-name: num-ten;
+  -webkit-animation-delay: 99s;
+          animation-delay: 99s;
+  -webkit-animation-duration: 100s;
+          animation-duration: 100s;
+  z-index: 1;
+}
+
+@-webkit-keyframes num-one {
+  0% {
+    transform: rotateX(0);
+    z-index: 50;
+  }
+  10% {
+    transform: rotateX(-180deg);
+    z-index: 50;
+  }
+  90% {
+    transform: rotateX(-180deg);
+    z-index: 1;
+  }
+  90.0001% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
+
+@keyframes num-one {
+  0% {
+    transform: rotateX(0);
+    z-index: 50;
+  }
+  10% {
+    transform: rotateX(-180deg);
+    z-index: 50;
+  }
+  90% {
+    transform: rotateX(-180deg);
+    z-index: 1;
+  }
+  90.0001% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
+@-webkit-keyframes num-ten {
+  0% {
+    transform: rotateX(0);
+    z-index: 50;
+  }
+  1% {
+    transform: rotateX(-180deg);
+    z-index: 50;
+  }
+  90% {
+    transform: rotateX(-180deg);
+    z-index: 1;
+  }
+  90.0001% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
+@keyframes num-ten {
+  0% {
+    transform: rotateX(0);
+    z-index: 50;
+  }
+  1% {
+    transform: rotateX(-180deg);
+    z-index: 50;
+  }
+  90% {
+    transform: rotateX(-180deg);
+    z-index: 1;
+  }
+  90.0001% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
